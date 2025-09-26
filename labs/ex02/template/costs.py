@@ -4,7 +4,7 @@
 import numpy as np
 
 
-def compute_loss(y, tx, w):
+def compute_loss(y, tx, w, method="MSE"):
     """Calculate the loss using either MSE or MAE.
 
     Args:
@@ -15,8 +15,10 @@ def compute_loss(y, tx, w):
     Returns:
         the value of the loss (a scalar), corresponding to the input parameters w.
     """
-    # ***************************************************
-    # INSERT YOUR CODE HERE
-    # TODO: compute loss by MSE
-    # ***************************************************
-    raise NotImplementedError
+    e = y - tx.dot(w)
+    if method == "MSE":
+        return 0.5 * np.mean(e**2)
+    elif method == "MAE":
+        return np.mean(np.abs(e))
+    else:
+        raise ValueError("Unknown method: {}".format(method))
