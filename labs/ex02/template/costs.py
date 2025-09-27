@@ -20,5 +20,7 @@ def compute_loss(y, tx, w, method="MSE"):
         return 0.5 * np.mean(e**2)
     elif method == "MAE":
         return np.mean(np.abs(e))
+    elif method == "RMSE":
+        return np.sqrt(2 * compute_loss(y, tx, w, method="MSE"))
     else:
         raise ValueError("Unknown method: {}".format(method))
