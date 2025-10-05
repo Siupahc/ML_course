@@ -5,7 +5,7 @@ import numpy as np
 
 
 def compute_loss(y, tx, w, method="MSE"):
-    """Calculate the loss using either MSE or MAE.
+    """Calculate the loss using either MSE or MAE or RMSE.
 
     Args:
         y: shape=(N, )
